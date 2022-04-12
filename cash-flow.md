@@ -3,7 +3,7 @@
 
 ## 声明
 
-更新日期：`2022-04-13 00:21`
+更新日期：`2022-04-13 00:25`
 
 * 所有支出均需实名，收入可以匿名
 * **本流水最终解释权归 `CodeThink` 所有**
@@ -25,5 +25,5 @@
 |   7 | 2022-03-17 00:00 |  3.0  | 收入 | codethink.top 一年租金分摊 | #0 : [Chuanwise](https://github.com/Chuanwise)   |
 |   8 | 2022-03-17 00:00 |  3.0  | 收入 | codethink.top 一年租金分摊 | #1 : [ThymeChen](https://github.com/ThymeChen)   |
 |   9 | 2022-03-20 00:00 |  65.0  | 收入 | 服务器租金分摊              | #2 : [qfys521](https://github.com/qfys521)       |
-|  10 | 2022-04-12 13:10 |  20.0  | 收入 | 赞助                   | #4 : Cuber                                       |
-|  11 | 2022-03-22 22:19 |  17.9  | 收入 | 赞助                   | #3 : [HornCopper](https://github.com/HornCopper) |
+|  10 | 2022-03-22 22:19 |  17.9  | 收入 | 赞助                   | #3 : [HornCopper](https://github.com/HornCopper) |
+|  11 | 2022-04-12 13:10 |  20.0  | 收入 | 赞助                   | #4 : Cuber                                       |

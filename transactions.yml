@@ -54,14 +54,14 @@
   description: "服务器租金分摊"
   operatorCode: 2
 - type: "INCOME"
-  value: 20.0
-  transactionCode: 10
-  timeStamp: 1649740200000
-  description: ""
-  operatorCode: 4
-- type: "INCOME"
   value: 17.9
-  transactionCode: 11
+  transactionCode: 10
   timeStamp: 1647958740000
   description: ""
   operatorCode: 3
+- type: "INCOME"
+  value: 20.0
+  transactionCode: 11
+  timeStamp: 1649740200000
+  description: ""
+  operatorCode: 4
