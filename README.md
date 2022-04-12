@@ -13,6 +13,5 @@
 
 `codethink` 官方唯一指定的赞助渠道：
 
-![支付宝收款码](./qr-codes/ali-pay.jpg) 
-
-![微信收款码](./qr-codes/wechat-pay.png)
+<img src="./qr-codes/ali-pay.jpg" height="300" alt="支付宝收款码">
+<img src="./qr-codes/wechat-pay.png" height="300" alt="微信收款码">
