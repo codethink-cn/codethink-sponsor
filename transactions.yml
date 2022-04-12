@@ -59,3 +59,9 @@
   timeStamp: 1649740200000
   description: ""
   operatorCode: 4
+- type: "INCOME"
+  value: 17.9
+  transactionCode: 11
+  timeStamp: 1647958740000
+  description: ""
+  operatorCode: 3

@@ -11,6 +11,12 @@ repositories {
     mavenCentral()
 
     mavenLocal()
+
+    maven {
+        name 'codethink repo'
+        url 'https://repo.codethink.top/public'
+    }
+
 }
 
 jar {
