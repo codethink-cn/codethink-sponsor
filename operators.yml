@@ -1,0 +1,16 @@
+---
+- operatorCode: 0
+  name: "Chuanwise"
+  url: "https://github.com/Chuanwise"
+- operatorCode: 1
+  name: "ThymeChen"
+  url: "https://github.com/ThymeChen"
+- operatorCode: 2
+  name: "qfys521"
+  url: "https://github.com/qfys521"
+- operatorCode: 3
+  name: "HornCopper"
+  url: "https://github.com/HornCopper"
+- operatorCode: 4
+  name: "Cuber"
+  url: null

@@ -1,0 +1,61 @@
+---
+- type: "INCOME"
+  value: 40.0
+  transactionCode: 1
+  timeStamp: 1647100800000
+  description: "codethink.cn 三年租金分摊"
+  operatorCode: 2
+- type: "INCOME"
+  value: 70.0
+  transactionCode: 2
+  timeStamp: 1647100800000
+  description: "codethink.cn 三年租金分摊"
+  operatorCode: 0
+- type: "OUTCOME"
+  value: 211.0
+  transactionCode: 3
+  timeStamp: 1647360000000
+  description: "wiki 和中心服务器一年租金"
+  operatorCode: 0
+- type: "INCOME"
+  value: 70.0
+  transactionCode: 4
+  timeStamp: 1647360000000
+  description: "服务器租金分摊"
+  operatorCode: 1
+- type: "INCOME"
+  value: 2.0
+  transactionCode: 5
+  timeStamp: 1647360000000
+  description: "codethink.top 一年租金分摊"
+  operatorCode: 3
+- type: "OUTCOME"
+  value: 9.0
+  transactionCode: 6
+  timeStamp: 1647446400000
+  description: "codethink.top 一年租金"
+  operatorCode: 0
+- type: "INCOME"
+  value: 3.0
+  transactionCode: 7
+  timeStamp: 1647446400000
+  description: "codethink.top 一年租金分摊"
+  operatorCode: 0
+- type: "INCOME"
+  value: 3.0
+  transactionCode: 8
+  timeStamp: 1647446400000
+  description: "codethink.top 一年租金分摊"
+  operatorCode: 1
+- type: "INCOME"
+  value: 65.0
+  transactionCode: 9
+  timeStamp: 1647705600000
+  description: "服务器租金分摊"
+  operatorCode: 2
+- type: "INCOME"
+  value: 20.0
+  transactionCode: 10
+  timeStamp: 1649740200000
+  description: ""
+  operatorCode: 4

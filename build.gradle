@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group 'cn.codethink'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+    mavenLocal()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'cn.codethink.sponsor.SponsorSystemLauncher'
+    }
+}
+
+dependencies {
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+
+    // yaml
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8'
+
+    // jline
+    implementation 'org.jline:jline:3.21.0'
+    implementation 'org.jline:jline-terminal-jansi:3.21.0'
+
+    // command
+    implementation 'cn.chuanwise:command-core:2.6.1'
+    implementation 'cn.chuanwise:command-module-jline:2.6.1'
+
+    // junit
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar {
+    exclude "META-INF/*.SF"
+    exclude "META-INF/*.DSA"
+    exclude "META-INF/*.RSA"
+    exclude "META-INF/LICENSE"
+
+    archiveName project.name + '-' + version + '.' + extension
+}
