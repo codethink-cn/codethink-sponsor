@@ -12,13 +12,13 @@ import cn.chuanwise.command.handler.AbstractClassHandler;
 import cn.chuanwise.command.tree.CommandTreeFork;
 import cn.chuanwise.command.tree.CommandTreeNode;
 import cn.chuanwise.common.space.Container;
+import cn.chuanwise.common.text.Alignment;
+import cn.chuanwise.common.text.TableColumn;
+import cn.chuanwise.common.text.TableView;
 import cn.chuanwise.common.util.Collections;
 import cn.chuanwise.common.util.Indexes;
 import cn.chuanwise.common.util.Numbers;
 import cn.chuanwise.common.util.Strings;
-import cn.codethink.sponsor.table.AlignmentType;
-import cn.codethink.sponsor.table.TableColumn;
-import cn.codethink.sponsor.table.TableView;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -55,9 +55,9 @@ public class Commands {
         ));
     
         TRANSACTION_TABLE_VIEW.getColumns().addAll(Arrays.asList(
-            new TableColumn<>("code", x -> "`" + x.getTransactionCode() + "`", AlignmentType.RIGHT),
+            new TableColumn<>("code", x -> "`" + x.getTransactionCode() + "`", Alignment.RIGHT),
             new TableColumn<>("time", x -> DATE_FORMAT.format(x.getTimeStamp())),
-            new TableColumn<>("value", x -> x.getType() == Transaction.Type.INCOME ? x.getValue() : -x.getValue()),
+            new TableColumn<>("流水", x -> (x.getType() == Transaction.Type.INCOME ? "+" : "-") + x.getValue()),
             new TableColumn<>("description", Transaction::getDescription),
             new TableColumn<>("operator", x -> {
                 final int operatorCode = x.getOperatorCode();
@@ -76,9 +76,9 @@ public class Commands {
         ));
     
         CASH_FLOW_TABLE_VIEW.getColumns().addAll(Arrays.asList(
-            new TableColumn<>("流水号", Transaction::getTransactionCode, AlignmentType.RIGHT),
+            new TableColumn<>("流水号", Transaction::getTransactionCode, Alignment.RIGHT),
             new TableColumn<>("时间", x -> DATE_FORMAT.format(x.getTimeStamp())),
-            new TableColumn<>("流水", x -> x.getType() == Transaction.Type.INCOME ? x.getValue() : -x.getValue(), AlignmentType.CENTER),
+            new TableColumn<>("流水", x -> (x.getType() == Transaction.Type.INCOME ? "+" : "-") + x.getValue(), Alignment.CENTER),
             new TableColumn<>("类型", x -> x.getType() == Transaction.Type.INCOME ? "收入" : "支出"),
             new TableColumn<>("描述", x -> {
                 final String description = x.getDescription();
@@ -122,7 +122,7 @@ public class Commands {
         if (operators.isEmpty()) {
             System.out.println("no any operator");
         } else {
-            final String string = OPERATOR_TABLE_VIEW.displayAsString(operators);
+            final String string = OPERATOR_TABLE_VIEW.display(operators);
             System.out.println(string);
         }
     }
@@ -177,7 +177,7 @@ public class Commands {
         if (transactions.isEmpty()) {
             System.out.println("no any transaction");
         } else {
-            System.out.println(TRANSACTION_TABLE_VIEW.displayAsString(transactions));
+            System.out.println(TRANSACTION_TABLE_VIEW.display(transactions));
             balance();
         }
     }
@@ -216,7 +216,7 @@ public class Commands {
             }
             if (sameNameOperators.size() != 1) {
                 System.out.println("multiple operators");
-                System.out.println(OPERATOR_TABLE_VIEW.displayAsString(sameNameOperators));
+                System.out.println(OPERATOR_TABLE_VIEW.display(sameNameOperators));
                 return;
             }
             operatorCode = sameNameOperators.get(0).getOperatorCode();
@@ -332,8 +332,13 @@ public class Commands {
         System.out.println(" -> outcome: RMB " + outcome);
     }
     
-    @Command("generate [-charset|c?UTF-8]")
-    void generateMarkdownFile(@Reference("charset") Charset charset) throws IOException {
+    @Command("render preview")
+    void previewRender() {
+        System.out.println(CASH_FLOW_TABLE_VIEW.display(SponsorSystem.getInstance().getTransactions()));
+    }
+    
+    @Command("render save [-charset|c?UTF-8]")
+    void renderMarkdownFile(@Reference("charset") Charset charset) throws IOException {
         final File markdownFile = new File("cash-flow.md");
         if (!markdownFile.isFile()) {
             markdownFile.createNewFile();
@@ -381,12 +386,12 @@ public class Commands {
             printWriter.println("* 余额：RMB `" + balance + "`");
             printWriter.println();
     
-            CASH_FLOW_TABLE_VIEW.display(printWriter, transactions);
+            printWriter.println(CASH_FLOW_TABLE_VIEW.display(transactions));
             
             printWriter.flush();
         }
     
-        System.out.println("file saved");
+        System.out.println(".md file rendered and saved");
     }
     
     @Command("debug")
@@ -410,7 +415,7 @@ public class Commands {
             .collect(Collectors.toList());
     
         System.out.println("wrong command, likely formats: ");
-        System.out.println(COMMAND_TABLE_VIEW.displayAsString(commands));
+        System.out.println(COMMAND_TABLE_VIEW.display(commands));
     }
     
     @EventHandler
@@ -423,7 +428,7 @@ public class Commands {
             .collect(Collectors.toList());
     
         System.out.println("multiple formats matched: ");
-        System.out.println(COMMAND_TABLE_VIEW.displayAsString(commands));
+        System.out.println(COMMAND_TABLE_VIEW.display(commands));
     }
     
     @EventHandler
@@ -530,7 +535,7 @@ public class Commands {
             }
             if (sameNameOperators.size() != 1) {
                 System.out.println("multiple operators, please use operator code to cleaner");
-                System.out.println(OPERATOR_TABLE_VIEW.displayAsString(sameNameOperators));
+                System.out.println(OPERATOR_TABLE_VIEW.display(sameNameOperators));
                 return null;
             }
         
