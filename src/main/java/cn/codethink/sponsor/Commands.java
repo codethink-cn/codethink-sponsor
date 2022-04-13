@@ -35,16 +35,34 @@ import java.util.stream.Collectors;
  */
 public class Commands {
     
+    /**
+     * 是否处在调试状态。调试时会显示所有的 Commander Event
+     */
     boolean debug;
     
+    /**
+     * 操作者表
+     */
     private static final TableView<Operator> OPERATOR_TABLE_VIEW = new TableView<>();
     
+    /**
+     * 转账表
+     */
     private static final TableView<Transaction> TRANSACTION_TABLE_VIEW = new TableView<>();
     
+    /**
+     * 转帐表显示为文件
+     */
     private static final TableView<Transaction> CASH_FLOW_TABLE_VIEW = new TableView<>();
     
+    /**
+     * 日期格式化器
+     */
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     
+    /**
+     * 指令格式表
+     */
     private static final TableView<cn.chuanwise.command.command.Command> COMMAND_TABLE_VIEW = new TableView<>();
     
     static {
@@ -57,7 +75,7 @@ public class Commands {
         TRANSACTION_TABLE_VIEW.getColumns().addAll(Arrays.asList(
             new TableColumn<>("code", x -> "`" + x.getTransactionCode() + "`", Alignment.RIGHT),
             new TableColumn<>("time", x -> DATE_FORMAT.format(x.getTimeStamp())),
-            new TableColumn<>("流水", x -> (x.getType() == Transaction.Type.INCOME ? "+" : "-") + x.getValue()),
+            new TableColumn<>("value", x -> (x.getType() == Transaction.Type.INCOME ? "+" : "-") + x.getValue()),
             new TableColumn<>("description", Transaction::getDescription),
             new TableColumn<>("operator", x -> {
                 final int operatorCode = x.getOperatorCode();

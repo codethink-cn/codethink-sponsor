@@ -20,8 +20,20 @@ import java.io.IOException;
  */
 public class SponsorSystemLauncher {
     
+    public static final String ASCII_LOGO =
+        "   _____ _______     _____ _____   ____  _   _  _____  ____  _____  \n" +
+        "  / ____|__   __|   / ____|  __ \\ / __ \\| \\ | |/ ____|/ __ \\|  __ \\ \n" +
+        " | |       | |_____| (___ | |__) | |  | |  \\| | (___ | |  | | |__) |\n" +
+        " | |       | |______\\___ \\|  ___/| |  | | . ` |\\___ \\| |  | |  _  / \n" +
+        " | |____   | |      ____) | |    | |__| | |\\  |____) | |__| | | \\ \\ \n" +
+        "  \\_____|  |_|     |_____/|_|     \\____/|_| \\_|_____/ \\____/|_|  \\_\\\n" +
+        "                                                                    \n";
+    
     public static void main(String[] args) {
         final SponsorSystem sponsorSystem = SponsorSystem.getInstance();
+    
+        System.out.println(ASCII_LOGO);
+        System.out.println();
     
         System.out.println("loading files...");
         try {
