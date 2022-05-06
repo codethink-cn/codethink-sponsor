@@ -65,3 +65,9 @@
   timeStamp: 1649740200000
   description: ""
   operatorCode: 4
+- type: "OUTCOME"
+  value: 25.0
+  transactionCode: 12
+  timeStamp: 1651849867113
+  description: "将阿里云 codethink.cn 域名转入腾讯云"
+  operatorCode: 0
