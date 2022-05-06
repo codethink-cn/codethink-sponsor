@@ -1,4 +1,4 @@
-**codethink-sponsor -> cash-flow**
+**CodeThink-Sponsor -> cash-flow**
 # 赞助金额流向公示
 
 ## 声明
