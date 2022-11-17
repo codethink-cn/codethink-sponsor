@@ -29,4 +29,7 @@
 |     11 | 2022-04-12 13:10 | +20.0  | 收入 | 赞助                                 | #4 : Cuber                                       |
 |     12 | 2022-05-06 23:11 | -25.0  | 支出 | 将阿里云 codethink.cn 域名转入腾讯云 | #0 : [Chuanwise](https://github.com/Chuanwise)   |
 |     13 | 2022-10-27 17:28 | +50.0  | 收入 | 支持 XiaoMingMinecraft               | #5 : 江贤之                                      |
+|     14 | 2022-11-16 10:11 | +282.0 | 收入 | 赞助 Inkar Suki                      | #6 : 红糖                                        |
+|     15 | 2022-11-16 14:26 | +6.0   | 收入 | 赞助 Inkar Suki                      | #7 : 暮朝朝                                      |
+|     16 | 2022-11-16 15:07 | -288.0 | 支出 | 用于购买 Inkar Suki 服务所需要的API    | #3 : [HornCopper](https://github.com/HornCopper) |
 
